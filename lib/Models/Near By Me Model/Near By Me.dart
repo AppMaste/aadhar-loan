@@ -1,0 +1,88 @@
+import 'dart:ui';
+
+class NearByModel {
+  final String NearTitle;
+  final Color NeatColor;
+  final String NearIcon;
+
+  NearByModel(this.NearTitle, this.NeatColor, this.NearIcon);
+}
+
+List NearTitle = [
+  "ATM",
+  "Art",
+  "Bars",
+  "Banks",
+  "Beauty Salon",
+  "Book Store",
+  "Clothes",
+  "Coffee",
+  "Car Dealers",
+  "Delivery",
+  "Dry Cleaning",
+  "Gas",
+  "Gym",
+  "Groceries",
+  "Hospitals",
+  "Hotels",
+  "Home and Garden",
+  "Jewelry",
+  "Libraries",
+  "Parking",
+  "Pharmacies",
+  "Parks",
+  "Restaurant",
+  "Stadium",
+];
+List NeatColor = [
+  const Color(0xFFFDEEF5),
+  const Color(0xFFFFF1E9),
+  const Color(0xFFEAFBF2),
+  const Color(0xFFEFF3FF),
+  const Color(0xFFFEEAEA),
+  const Color(0xFFEDE9F1),
+  const Color(0xFFECF8F7),
+  const Color(0xFFFDF4E2),
+  const Color(0xFFFDEEF5),
+  const Color(0xFFFFF1E9),
+  const Color(0xFFEAFBF2),
+  const Color(0xFFEFF3FF),
+  const Color(0xFFFEEAEA),
+  const Color(0xFFEDE9F1),
+  const Color(0xFFECF8F7),
+  const Color(0xFFFDF4E2),
+  const Color(0xFFFDEEF5),
+  const Color(0xFFFFF1E9),
+  const Color(0xFFEAFBF2),
+  const Color(0xFFEFF3FF),
+  const Color(0xFFFEEAEA),
+  const Color(0xFFEDE9F1),
+  const Color(0xFFECF8F7),
+  const Color(0xFFFDF4E2),
+];
+List NearIcon = [
+  "assets/Icon/Near By Me/ATM.png",
+  "assets/Icon/Near By Me/art.png",
+  "assets/Icon/Near By Me/bars.png",
+  "assets/Icon/Near By Me/bank.png",
+  "assets/Icon/Near By Me/salon.png",
+  "assets/Icon/Near By Me/book store.png",
+  "assets/Icon/Near By Me/clothes.png",
+  "assets/Icon/Near By Me/coffee.png",
+  "assets/Icon/Near By Me/car dealers.png",
+  "assets/Icon/Near By Me/delivery.png",
+  "assets/Icon/Near By Me/dry cleaning.png",
+  "assets/Icon/Near By Me/gas.png",
+  "assets/Icon/Near By Me/gym.png",
+  "assets/Icon/Near By Me/groceries.png",
+  "assets/Icon/Near By Me/hospital.png",
+  "assets/Icon/Near By Me/hotel.png",
+  "assets/Icon/Near By Me/home & garden.png",
+  "assets/Icon/Near By Me/Jewelry.png",
+  "assets/Icon/Near By Me/Libraries.png",
+  "assets/Icon/Near By Me/parking.png",
+  "assets/Icon/Near By Me/pharmacies.png",
+  "assets/Icon/Near By Me/parks.png",
+  "assets/Icon/Near By Me/restaurants.png",
+  "assets/Icon/Near By Me/stadium.png",
+];
