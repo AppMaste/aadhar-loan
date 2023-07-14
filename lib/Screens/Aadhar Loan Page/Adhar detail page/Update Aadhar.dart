@@ -13,6 +13,7 @@ import '../../../Controller/Ad Controller/Native and Banner Ad Controller.dart';
 import 'Get Adhar Detail Page/Book (BETA).dart';
 import 'Update Aadhar Detail.dart';
 
+// ignore: must_be_immutable
 class UpdateAadharScreen extends StatelessWidget {
   UpdateAadharScreen({super.key});
 
@@ -26,74 +27,81 @@ class UpdateAadharScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBarWidget(context, "Update Aadhar"),
-      body: Stack(
-        children: [
-          ListView.builder(
-            itemCount: list.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(
-                    top: ScreenMQ.fSize_20(),
-                    left: ScreenMQ.fSize_10(),
-                    right: ScreenMQ.fSize_10()),
-                child: GestureDetector(
-                  onTap: () {
-                    index == 0
-                        ? tapController.buttonWidget(
-                            context, "/AadharDetailScreen", '')
-                        // Get.to(() => AadharDetailScreen())
-                        : tapController.buttonWidget(
-                            context, "/UpdateAadharDetailScreen", [
-                            UpdateTitle[index],
-                            UpdateDetail[index],
-                            UpdateLink[index]
-                          ]);
-                    /*Get.to(() => UpdateAadharDetailScreen(), arguments: [
-                            UpdateTitle[index],
-                            UpdateDetail[index],
-                            UpdateLink[index]
-                          ]);*/
-                  },
-                  child: Container(
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      color: AppColor.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(ScreenMQ.fSize_40()),
-                      border: Border.all(color: AppColor),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(right: ScreenMQ.fSize_10()),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: ScreenMQ.fSize_13(),
-                                bottom: ScreenMQ.fSize_13(),
-                                left: ScreenMQ.fSize_10()),
-                            child: Text(
-                              list[index],
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: ScreenMQ.fSize_15()),
+    return WillPopScope(
+      onWillPop: () {
+        backController.backbuttonWidget(context, "/UpdateAadharScreen");
+        return Future(() => false);
+      },
+      child: Scaffold(
+        appBar: appBarWidget(context, "Update Aadhar"),
+        body: Stack(
+          children: [
+            ListView.builder(
+              itemCount: list.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(
+                      top: ScreenMQ.fSize_20(),
+                      left: ScreenMQ.fSize_10(),
+                      right: ScreenMQ.fSize_10()),
+                  child: GestureDetector(
+                    onTap: () {
+                      index == 0
+                          ? tapController.buttonWidget(
+                              context, "/AadharDetailScreen", '')
+                          // Get.to(() => AadharDetailScreen())
+                          : tapController.buttonWidget(
+                              context, "/UpdateAadharDetailScreen", [
+                              UpdateTitle[index],
+                              UpdateDetail[index],
+                              UpdateLink[index]
+                            ]);
+                      /*Get.to(() => UpdateAadharDetailScreen(), arguments: [
+                              UpdateTitle[index],
+                              UpdateDetail[index],
+                              UpdateLink[index]
+                            ]);*/
+                    },
+                    child: Container(
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                        color: AppColor.withOpacity(0.3),
+                        borderRadius:
+                            BorderRadius.circular(ScreenMQ.fSize_40()),
+                        border: Border.all(color: AppColor),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(right: ScreenMQ.fSize_10()),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: ScreenMQ.fSize_13(),
+                                  bottom: ScreenMQ.fSize_13(),
+                                  left: ScreenMQ.fSize_10()),
+                              child: Text(
+                                list[index],
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: ScreenMQ.fSize_15()),
+                              ),
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            color: AppColor,
-                          )
-                        ],
+                            Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              color: AppColor,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-          banner.getBN()
-        ],
+                );
+              },
+            ),
+            banner.getBN("/UpdateAadharScreen")
+          ],
+        ),
       ),
     );
   }

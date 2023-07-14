@@ -48,6 +48,7 @@ import 'Screens/Instant Loan Page/detail.dart';
 import 'Screens/Instant Loan Page/instant lona.dart';
 import 'Screens/Loan Guide Page/Loan guide detail.dart';
 import 'Screens/Loan Guide Page/Loan guide.dart';
+import 'Screens/Near By Me Page/Near By Me.dart';
 import 'Screens/Splash Screens/Get Started.dart';
 import 'Screens/Splash Screens/Splesh Screen.dart';
 
@@ -179,6 +180,7 @@ Future<void> main() async {
         "/EPFServiceScreen": (context) => EPFServiceScreen(),
         "/EPFDetailScreen": (context) => EPFDetailScreen(),
         "/HomeScreen": (context) => HomeScreen(),
+        "/NearByMeScreen": (context) => NearByMeScreen(),
         "/InstantLoanScreen": (context) => InstantLoanScreen(),
         "/InstantDetailScreen": (context) => InstantDetailScreen(),
         "/ClamScreen": (context) => ClamScreen(),

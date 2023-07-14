@@ -1,4 +1,6 @@
 // import 'package:awesome_dialog/awesome_dialog.dart';
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,8 +12,8 @@ var listsize = ScreenMQ.fSize_160();
 var snackdemo = SnackBar(
   content: Text(
     'Link Copied',
-    style: GoogleFonts.poppins(
-        fontWeight: FontWeight.w500, color: Colors.black),
+    style:
+        GoogleFonts.poppins(fontWeight: FontWeight.w500, color: Colors.black),
   ),
   backgroundColor: AppColor,
   elevation: 10,
@@ -138,7 +140,6 @@ var month = [
   '10 Month',
   '11 Month',
 ].obs;
-
 
 ///////////////////////////////////// List Data ///////////////////////////////////////////////////////////
 List loanTypeName = [
@@ -856,7 +857,7 @@ rowTextFieldWidget(
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
+        SizedBox(
           width: ScreenMQ.horizontalBlockSize! * 44,
           child: TextField(
             controller: controller,
@@ -882,7 +883,7 @@ rowTextFieldWidget(
             ),
           ),
         ),
-        Container(
+        SizedBox(
           width: ScreenMQ.horizontalBlockSize! * 44,
           child: TextField(
             controller: controller2,
@@ -996,56 +997,59 @@ stateContainerWidget(BuildContext context, String title, var ontap) {
 ///////////////////////////////////// Bank Info Detail Screen ///////////////////////////////////////////////////////////
 
 bankInfoContainerWidget(BuildContext context, String title, String icon,
-    String number, var color) {
+    String number, var color, var ontap) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: Container(
-      height: ScreenMQ.horizontalBlockSize! * 25,
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(ScreenMQ.fSize_50()),
-              bottomLeft: Radius.circular(ScreenMQ.fSize_20()),
-              bottomRight: Radius.circular(ScreenMQ.fSize_20()))),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              height: ScreenMQ.horizontalBlockSize! * 20,
-              width: ScreenMQ.horizontalBlockSize! * 20,
-              decoration: const BoxDecoration(
-                  color: Colors.white, shape: BoxShape.circle),
-              child: Image.asset(
-                icon,
-                scale: 1.3,
+    child: GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: ScreenMQ.horizontalBlockSize! * 25,
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(ScreenMQ.fSize_50()),
+                bottomLeft: Radius.circular(ScreenMQ.fSize_20()),
+                bottomRight: Radius.circular(ScreenMQ.fSize_20()))),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                height: ScreenMQ.horizontalBlockSize! * 20,
+                width: ScreenMQ.horizontalBlockSize! * 20,
+                decoration: const BoxDecoration(
+                    color: Colors.white, shape: BoxShape.circle),
+                child: Image.asset(
+                  icon,
+                  scale: 1.3,
+                ),
               ),
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: ScreenMQ.fSize_15()),
-              Padding(
-                padding: EdgeInsets.only(left: ScreenMQ.fSize_15()),
-                child: Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      fontSize: ScreenMQ.fSize_20()),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: ScreenMQ.fSize_15()),
+                Padding(
+                  padding: EdgeInsets.only(left: ScreenMQ.fSize_15()),
+                  child: Text(
+                    title,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: ScreenMQ.fSize_20()),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: ScreenMQ.fSize_15()),
-                child: Text(
-                  number,
-                  style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                Padding(
+                  padding: EdgeInsets.only(left: ScreenMQ.fSize_15()),
+                  child: Text(
+                    number,
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                  ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     ),
   );

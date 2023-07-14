@@ -1,27 +1,11 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, non_constant_identifier_names
+
 class EPFModel {
-  final epfname,
-      epfnamecolor,
-      epfboxcolor,
-      epficon,
-      epfappbarname,
-      epfdetails,
-      epfclaim,
-      epfclaim2,
-      epfcall,
-      epfcallbutton;
+  final epfname;
 
   EPFModel(
-      this.epfname,
-      this.epfnamecolor,
-      this.epfboxcolor,
-      this.epficon,
-      this.epfappbarname,
-      this.epfdetails,
-      this.epfclaim,
-      this.epfclaim2,
-      this.epfcall,
-      this.epfcallbutton,
-      );
+    this.epfname,
+  );
 }
 
 List epfname = [
@@ -38,190 +22,10 @@ List epfname = [
   "Locate \nOffice",
   "EPF \nonline",
 ];
-List epfnamecolor = [
-  "#1929BB",
-  "#FF1B88",
-  "#D500DB",
-  "#DAAB06",
-  "#AC46D0",
-  "#F27700",
-  "#638B00",
-  "#1929BB",
-  "#DAAB06",
-  "#FF1B88",
-  "#F27700",
-  "#D500DB",
-];
-List epfboxcolor = [
-  "#D7DBFF",
-  "#FFD4E9",
-  "#FCD8FD",
-  "#FFF6D4",
-  "#F2CDFF",
-  "#FFE8CD",
-  "#F2FFD8",
-  "#D7DBFF",
-  "#FFF6D4",
-  "#FFD4E9",
-  "#FFE8CD",
-  "#FCD8FD",
-];
-List epficon = [
-  "assets/icon/activity-una-icon.png",
-  "assets/icon/balance-online-icon.png",
-  "assets/icon/pensioners-icon.png",
-  "assets/icon/TRRN-status-icon.png",
-  "assets/icon/claim-icon.png",
-  "assets/icon/balance-call-icon.png",
-  "assets/icon/balance-sms-icon.png",
-  "assets/icon/faqs-icon.png",
-  "assets/icon/news-icon.png",
-  "assets/icon/helpline-icon.png",
-  "assets/icon/locate-office-icon.png",
-  "assets/icon/EPF-onine-icon.png",
-];
-List epfappbarname = [
-  "Detail",
-  "Loan Tips",
-  "Detail",
-  "Detail",
-  "Claim",
-  "Loan Tips",
-  "Loan Tips",
-  "Detail",
-  "Detail",
-  "Loan Tips",
-  "Detail",
-  "EPF Service",
-];
-List epfdetails = [
-  """✤ Ways to Check EPF Balance Online
-
-✤The EPFO has been introducing new methods for employees to check the EPF balance and is in the process of developing the existing platforms that can be used.
-
-✤ Online Portal
-
-✤ SMS Service
-
-✤ Missed Call""",
-  """""",
-  """✤ EPFO introduced a new system to facilitate online submission of transfer claims by Members with an objective to make the transfer process transparent, efficient and comfortable for your employees.
-
-✤ You are urged to bring this facility to the notice of all your employees which is available on EPFOs Member portal.
-
-✤ A member has an option to submit his claim either through his present employer or the previous one.
-
-✤ You can see all such claim requests with ease, verify/correct member details, approve and submit the requests online through this portal.
-
-✤ For online submission of the claims, the Digital signature (Class II or above) of the authorized person is required.""",
-  """✤ Visit the EPF Portal and click on ‘Our Services’ on the dashboard and click on For Employees.
-
-✤ Click on Member Passbook
-
-✤ The following details must be populated to log in to access the account.""",
-  """""",
-  """""",
-  """""",
-  """✤ EPFO Recruitment 2019 Free Job alert for both Fresher and Experienced Candidates updated on March 12, 2019.
-
-✤ Get Direct Official Link for applying EPFO Recruitment 2019 along with current EPFO Recruitment official Notification 2019 here.
-
-✤ Find all recent EPFO Vacancy 2019 across India and check all latest EPFO 2019 job openings instantly here, Know upcoming EPFO Recruitment 2019 immediately here.""",
-  """✤ View all Tender Notifications issued by Employees Provident Fund Organisation.
-
-✤ Search live eProcurement business opportunities available in EPFO Tenders section.
-
-✤ Employees Provident Fund Organisation Tenders are further filtered by Bid Submission Date, Tender Value, Project Location & Product Category.
-
-✤Get email alert on Tenders from Employees Provident Fund Organisation - (EPFO).""",
-  """""",
-  """✤ EPF 24×7 Customer Care Number & Toll Free Helpline- Employee Provident Fund
-
-✤ And Head Office Address List Are Blow Plz Click The Button.""",
-  """""",
-];
-List epfclaim = [
-  """""",
-  """Check Your PF Balance
-Without Internet Through""",
-  """""",
-  """""",
-  """""",
-  """Check Your PF Balance
-Without Internet Through""",
-  """Check Your PF Balance
-Without Internet Through""",
-  """""",
-  """""",
-  """  Helpline Number Solve Your
-  Query Related EPF by just
-  Giving a Call on Toll Free
-  Number""",
-  """""",
-  """""",
-];
-List epfclaim2 = [
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """demo text""",
-  """""",
-];
-List epfcall = [
-  """""",
-  """EPFOHO UAN ENG to
-        7738299899""",
-  """""",
-  """""",
-  """""",
-  """+919900990099""",
-  """EPFOHO UAN ENG to
-        7738299899""",
-  """""",
-  """""",
-  """+919900990099""",
-  """""",
-  """""",
-];
-List epfcallbutton = [
-  """""",
-  """Send""",
-  """""",
-  """""",
-  """""",
-  """Call""",
-  """Send""",
-  """""",
-  """""",
-  """Call""",
-  """""",
-  """""",
-];
 
 List<EPFModel> EPFData = List.generate(epfname.length, (index) {
-  return EPFModel(
-    epfname[index],
-    epfnamecolor[index],
-    epfboxcolor[index],
-    epficon[index],
-    epfappbarname[index],
-    epfdetails[index],
-    epfclaim[index],
-    epfclaim2[index],
-    epfcall[index],
-    epfcallbutton[index],
-  );
+  return EPFModel(epfname[index]);
 });
-
-
-
 
 List onlinename = [
   "Establishment Registration",

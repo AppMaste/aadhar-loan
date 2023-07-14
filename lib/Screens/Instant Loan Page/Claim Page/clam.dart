@@ -22,62 +22,68 @@ class ClamScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var name = argument.toString().split("\n");
-    return Scaffold(
-      appBar: appBarWidget(context, name[0]),
-      body: Stack(
-        children: [
-          ListView.builder(
-            itemCount: title.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(
-                    left: ScreenMQ.fSize_20(),
-                    right: ScreenMQ.fSize_20(),
-                    top: ScreenMQ.fSize_10()),
-                child: GestureDetector(
-                  onTap: () {
-                    tapController.buttonWidget(
-                        context, "/ClaimDetailScreen", '');
-                    // Get.to(() => const ClaimDetailScreen());
-                  },
-                  child: Container(
-                    height: ScreenMQ.fSize_60(),
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                        color: AppColor.withOpacity(0.3),
-                        borderRadius:
-                            BorderRadius.circular(ScreenMQ.fSize_40()),
-                        border: Border.all(color: AppColor)),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: ScreenMQ.fSize_15(),
-                        right: ScreenMQ.fSize_15(),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            title[index],
-                            style: GoogleFonts.poppins(
-                              color: AppColor,
-                              fontSize: ScreenMQ.fSize_15(),
-                              fontWeight: FontWeight.w500,
+    return WillPopScope(
+      onWillPop: () {
+        backController.backbuttonWidget(context, "/ClamScreen");
+        return Future(() => false);
+      },
+      child: Scaffold(
+        appBar: appBarWidget(context, name[0]),
+        body: Stack(
+          children: [
+            ListView.builder(
+              itemCount: title.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(
+                      left: ScreenMQ.fSize_20(),
+                      right: ScreenMQ.fSize_20(),
+                      top: ScreenMQ.fSize_10()),
+                  child: GestureDetector(
+                    onTap: () {
+                      tapController.buttonWidget(
+                          context, "/ClaimDetailScreen", '');
+                      // Get.to(() => const ClaimDetailScreen());
+                    },
+                    child: Container(
+                      height: ScreenMQ.fSize_60(),
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                          color: AppColor.withOpacity(0.3),
+                          borderRadius:
+                              BorderRadius.circular(ScreenMQ.fSize_40()),
+                          border: Border.all(color: AppColor)),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: ScreenMQ.fSize_15(),
+                          right: ScreenMQ.fSize_15(),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              title[index],
+                              style: GoogleFonts.poppins(
+                                color: AppColor,
+                                fontSize: ScreenMQ.fSize_15(),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            color: AppColor,
-                          )
-                        ],
+                            Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              color: AppColor,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-          banner.getBN()
-        ],
+                );
+              },
+            ),
+            banner.getBN("/ClamScreen")
+          ],
+        ),
       ),
     );
   }

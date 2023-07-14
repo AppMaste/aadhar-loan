@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'dart:async';
 
 import 'package:aadhar_loan_app/Widgets/Mediaquery/media.dart';
@@ -8,10 +10,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
 
+import '../../Widgets/widgets/Allwidget.dart';
+
 final nativeee = Get.put(NativeAD());
 final native = Get.put(GetNative());
 final banner = Get.put(BannerAD());
-
 
 class GetNative {
   Future<dynamic> getData() {
@@ -55,9 +58,9 @@ class NativeAD extends GetxController {
         listener: NativeAdListener(onAdLoaded: (ad) {
           nativeAd!.load();
           isLoaded.value = true;
-          print("Native ad Loaded");
+          // print("Native ad Loaded");
         }, onAdFailedToLoad: (ad, error) {
-          print("Native ad Failed to Load");
+          // print("Native ad Failed to Load");
         }),
         // factoryId: wantSmallNativeAd ? "listTile" : "listTileMedium",
         factoryId: factoryId,
@@ -169,7 +172,7 @@ class NativeAD extends GetxController {
                 ),
                 child: FacebookNativeAd(
                   // placementId: "YOUR_PLACEMENT_ID",
-                  placementId: firebasedata.value[Get.currentRoute]["N_F_B_A"],
+                  placementId: firebasedata.value["N_F_B_A"],
                   // placementId:
                   //     "IMG_16_9_APP_INSTALL#2312433698835503_2964953543583512",
                   adType: NativeAdType.NATIVE_AD,
@@ -178,13 +181,13 @@ class NativeAD extends GetxController {
                       : ScreenMQ.fSize_250(),
                   width: ScreenMQ.fSize_350(),
                   backgroundColor: Colors.white,
-                  titleColor: const Color(0xFF0072BB),
+                  titleColor: Colors.black,
                   descriptionColor: Colors.grey,
-                  buttonColor: const Color(0xFF194183),
-                  buttonTitleColor: Colors.white,
-                  buttonBorderColor: const Color(0xFF8bb9eb),
+                  buttonColor: AppColor.withOpacity(0.4),
+                  buttonTitleColor: Colors.black,
+                  buttonBorderColor: AppColor,
                   listener: (result, value) {
-                    print("Native Banner Ad: $result --> $value");
+                    // print("Native Banner Ad: $result --> $value");
                   },
                 ),
               )
@@ -206,8 +209,8 @@ class NativeAD extends GetxController {
                                   const BorderRadius.all(Radius.circular(10)),
                               image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                      firebasedata.value[Get.currentRoute]["I_U"]))),
+                                  image: NetworkImage(firebasedata
+                                      .value[Get.currentRoute]["I_U"]))),
                         ),
                         Positioned(
                           child: Container(
@@ -238,15 +241,15 @@ class BannerAD extends GetxController {
 
   // var bannerLoaded = false.obs;
 
-  Widget getBN() {
-    if (firebasedata.value[Get.currentRoute]["B_A_T"] == "admob") {
+  Widget getBN(String page) {
+    if (firebasedata.value["B_A_T"] == "admob") {
       bannerAd = BannerAd(
         size: AdSize.banner,
-        adUnitId: firebasedata.value[Get.currentRoute]["B_A"],
+        adUnitId: firebasedata.value["B_A"],
         // adUnitId: "ca-app-pub-3940256099942544/6300978111",
         listener: BannerAdListener(
             onAdLoaded: (ad) {
-              print("Banner ad Loaded${a++}");
+              // print("Banner ad Loaded${a++}");
             },
             onAdFailedToLoad: (ad, error) {}),
         request: const AdRequest(),
@@ -257,7 +260,7 @@ class BannerAD extends GetxController {
     return firebasedata.value["B_A_T"] == "admob"
         ? Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
+            child: SizedBox(
               // color: Colors.redAccent,
               height: 50,
               child: AdWidget(
@@ -267,7 +270,7 @@ class BannerAD extends GetxController {
           )
         : Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
+            child: SizedBox(
               // color: Colors.black12,
               height: 50,
               child: FacebookBannerAd(
@@ -275,7 +278,7 @@ class BannerAD extends GetxController {
                   placementId: firebasedata.value["B_F_B_A"],
                   bannerSize: BannerSize.STANDARD,
                   listener: (result, value) {
-                    print("Banner Ad: $result -->  $value");
+                    // print("Banner Ad: $result -->  $value");
                   }),
             ),
           );

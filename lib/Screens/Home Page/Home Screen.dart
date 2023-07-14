@@ -1,24 +1,13 @@
+// ignore_for_file: deprecated_member_use
+
+import 'dart:io';
 import 'package:aadhar_loan_app/Controller/Ad%20Controller/Button%20Controller/Button%20Controller.dart';
-import 'package:aadhar_loan_app/Screens/Aadhar%20Pan%20Link%20Page/Aadhar%20Pan%20Link.dart';
-import 'package:aadhar_loan_app/Screens/Bank%20Info%20Page/Bank%20Info.dart';
-import 'package:aadhar_loan_app/Screens/Near%20By%20Me%20Page/Near%20By%20Me.dart';
 import 'package:aadhar_loan_app/Widgets/Mediaquery/media.dart';
 import 'package:aadhar_loan_app/Widgets/widgets/Allwidget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../Controller/Ad Controller/Native and Banner Ad Controller.dart';
-import '../Aadhar Loan Page/Aadhar loan.dart';
-import '../Address change Page/Address Change.dart';
-import '../Apply Loan Page/Apply Now Screen.dart';
-import '../Calculator Page/EMI calcualtor Page/EMI Calculator.dart';
-import '../Calculator Page/GST calculator Page/GST Calculator.dart';
-import '../Calculator Page/SIP Calculator Page/SIP Calculator.dart';
-import '../EPF Service Page/EPF Service.dart';
-import '../Instant Loan Page/instant lona.dart';
-import '../Loan Guide Page/Loan guide.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -62,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           GestureDetector(
-                            onTap: () => Navigator.of(context).pop(true),
+                            onTap: () => exit(0),
                             child: Container(
                               height: ScreenMQ.fSize_45(),
                               width: ScreenMQ.fSize_100(),
@@ -323,7 +312,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              banner.getBN()
+              banner.getBN("/HomeScreen")
             ],
           ),
         ),
