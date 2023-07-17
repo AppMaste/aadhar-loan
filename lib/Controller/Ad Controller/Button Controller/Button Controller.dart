@@ -188,7 +188,7 @@ class BackController extends GetxController {
           );
         },
       );
-      if (firebasedata.value[name]["I_A_T"] == 'admob') {
+      if (firebasedata.value[name]["B_I_A"] == 'admob') {
         InterstitialAd.load(
           adUnitId: firebasedata.value["I_A"],
           // adUnitId: "/6499/example/interstitial",
@@ -220,7 +220,7 @@ class BackController extends GetxController {
           }),
         );
       }
-      if (firebasedata.value[name]["I_A_T"] == 'fb') {
+      if (firebasedata.value[name]["B_I_A"] == 'fb') {
         FacebookInterstitialAd.loadInterstitialAd(
           placementId: firebasedata.value["I_F_B_A"],
           // placementId: "IMG_16_9_APP_INSTALL#2312433698835503_2650502525028617",
@@ -241,7 +241,7 @@ class BackController extends GetxController {
           },
         );
       }
-      if (firebasedata.value[name]["I_A_T"] == "I_U") {
+      if (firebasedata.value[name]["B_I_A"] == "I_U") {
         _launchURL(firebasedata.value[name]["U"]);
         Future.delayed(
           const Duration(seconds: 2),

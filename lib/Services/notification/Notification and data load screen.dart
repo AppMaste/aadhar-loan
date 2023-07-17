@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'dart:convert';
 import 'package:aadhar_loan_app/main.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -16,7 +18,7 @@ class AppController extends GetxController with WidgetsBindingObserver {
   bool Paused = false;
 
   // ignore: non_constant_identifier_names
-  bool Loaded = false;
+  var Loaded = false.obs;
 
   @override
   void onInit() async {
@@ -55,7 +57,6 @@ class AppController extends GetxController with WidgetsBindingObserver {
 
   // ignore: non_constant_identifier_names
   AdData() async {
-    // ignore: invalid_use_of_protected_member
     if (firebasedata.value.isNotEmpty) {
       appopenAd();
       Future.delayed(const Duration(seconds: 3), () {
@@ -69,34 +70,48 @@ class AppController extends GetxController with WidgetsBindingObserver {
     }
   }
 
+  var back = 1.obs;
+
+  AppOpenAd? _appOpenAd;
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // TODO: implement didChangeAppLifecycleState
     super.didChangeAppLifecycleState(state);
     if (state == AppLifecycleState.paused) {
-      AppOpenAd.load(
-        // ignore: invalid_use_of_protected_member
+      print("pauseeeee ${Loaded.value}");
+      AppOpenAd.loadWithAdManagerAdRequest(
         adUnitId: firebasedata.value["A_A"],
         // adUnitId: "/6499/example/app-open",
         orientation: AppOpenAd.orientationPortrait,
-        request: const AdManagerAdRequest(),
+        adManagerAdRequest: const AdManagerAdRequest(),
         adLoadCallback: AppOpenAdLoadCallback(
           onAdLoaded: (ad) {
-            appOpenAd = ad;
-            Loaded = true;
+            _appOpenAd = ad;
+            Loaded.value = true;
+            print("trueee ${Loaded.value}");
           },
           onAdFailedToLoad: (error) {
             // Handle the error.
+            back.value++;
+            print("mainback ${back.value}");
           },
         ),
       );
       Paused = true;
     }
     if (state == AppLifecycleState.resumed) {
-      if (Loaded == true) {
-        appOpenAd?.show();
+      if (back.value == firebasedata.value["B_I_A_C"] && Loaded.value == true) {
+        back.value = 1;
+        // if (Loaded.value == true) {
+        _appOpenAd?.show();
+        // }
+        Paused = false;
+        print("backbackbackback ${back.value}");
+      } else {
+        back.value++;
+        print("elseback ${back.value}");
       }
-      Paused = false;
     }
   }
 }
